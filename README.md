@@ -3,7 +3,7 @@ This tool was created to make it easier to get the ip address of a host or domai
 
 ## Preview
 
-![My Image](/host2ip.png)
+![My Image](/host2ip-preview.png)
 
 ## Features
 - Simple
