@@ -37,19 +37,21 @@ def resolveDns(hostnames):
         try:
             checkHost = host.replace("https://", "").replace("http://", "").replace("www.", "")
             ip = socket.gethostbyname(checkHost)
-            if ip is not None or ip != "":
-		print(f"{bcolors.OKGREEN}{checkHost}{bcolors.ENDC} --> {ip}")
+            if ip is not None or ip != "\n":
+                print(f"{bcolors.OKGREEN}{checkHost}{bcolors.ENDC} --> {ip}")
                 with open("ips.txt","a") as f:
                     f.write(ip + "\n")
         except Exception as e:
-            print(f"{bcolors.FAIL}{checkHost}{bcolors.ENDC}: Failed, domain inactive!")
+            print(f"{bcolors.FAIL}{checkHost}{bcolors.ENDC}:  Failed, domain inactive!")
             continue
 
 if __name__ == "__main__":
     
     with open(sitelist) as file:
-        hostnames = file.readlines()
-        hostnames = [line.rstrip() for line in hostnames]
+        hostnames = (line.rstrip() for line in file) 
+        hostnames = list(line for line in hostnames if line)
+        #hostnames = file.readlines()
+        #hostnames = [line.rstrip() for line in hostnames]
     
     print(bcolors.OKPURPLE + "===[ Start Work ]==="+ bcolors.ENDC)
     start = time.time()
@@ -70,4 +72,4 @@ if __name__ == "__main__":
     end = time.time()
     duration = end - start
     print(" ")
-    print(f'{bcolors.OKCYAN}Finished {len(sitelist)} links in {duration} seconds {bcolors.ENDC}')
+    print(f'{bcolors.OKCYAN}Finished {len(hostnames)} links in {duration} seconds {bcolors.ENDC}')
