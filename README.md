@@ -30,7 +30,7 @@ python domain2ip.py
 | Command | Value |
 | ------ | ------ |
 | Sitelist | Enter your website list to scan in format txt |
-| Thread | Enter value threading (default 1000) |
+| Thread | Enter value threading (default 100) |
 
 ## License
 
