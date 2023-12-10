@@ -37,12 +37,12 @@ def resolveDns(hostnames):
         try:
             checkHost = host.replace("https://", "").replace("http://", "").replace("www.", "")
             ip = socket.gethostbyname(checkHost)
-            print(f"{bcolors.OKGREEN}{checkHost}{bcolors.ENDC} --> {ip}")
             if ip is not None or ip != "":
+		print(f"{bcolors.OKGREEN}{checkHost}{bcolors.ENDC} --> {ip}")
                 with open("ips.txt","a") as f:
                     f.write(ip + "\n")
         except Exception as e:
-            print(f"{bcolors.FAIL}{checkHost}{bcolors.ENDC}: {e}")
+            print(f"{bcolors.FAIL}{checkHost}{bcolors.ENDC}: Failed, domain inactive!")
             continue
 
 if __name__ == "__main__":
