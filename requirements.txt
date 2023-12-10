@@ -1,4 +1,4 @@
-threading
-socket
-time
-os
+thread
+sockets
+python-time
+os-sys
